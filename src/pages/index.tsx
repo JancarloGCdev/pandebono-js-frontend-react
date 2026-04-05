@@ -1,22 +1,30 @@
 import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black`}
-    >
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <div className="relative flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <nav className="absolute right-4 top-4 z-10 flex flex-wrap items-center justify-end gap-2 sm:right-8 sm:top-8 sm:gap-3">
+        <Link
+          href="/login"
+          className="rounded-full border border-zinc-200 bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-sm backdrop-blur transition-colors hover:bg-white dark:border-zinc-700 dark:bg-zinc-900/90 dark:text-zinc-100 dark:hover:bg-zinc-900"
+        >
+          Entrar
+        </Link>
+        <Link
+          href="/register"
+          className="rounded-full bg-zinc-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+        >
+          Registrarse
+        </Link>
+        <Link
+          href="/dashboard"
+          className="rounded-full px-4 py-2 text-sm font-medium text-zinc-600 underline-offset-4 hover:underline dark:text-zinc-400"
+        >
+          Panel
+        </Link>
+      </nav>
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between px-8 py-24 sm:items-start sm:px-16 sm:py-32">
         <Image
           className="dark:invert"
           src="/next.svg"
